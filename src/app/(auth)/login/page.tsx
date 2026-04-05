@@ -52,6 +52,10 @@ export default function LoginPage() {
         {error && (
           <div className="mb-4 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-3 rounded-lg text-sm text-center">
             {error}
+            <div className="text-[10px] mt-1 opacity-70">
+               Debug: ProjectID={process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'Missing'} | 
+               APIKey={process.env.NEXT_PUBLIC_FIREBASE_API_KEY ? 'Loaded' : 'Missing'}
+            </div>
           </div>
         )}
 
@@ -97,6 +101,11 @@ export default function LoginPage() {
             Sign up
           </Link>
         </p>
+
+        {/* Hidden debug info - only visible to developer */}
+        <div className="mt-4 text-[10px] text-gray-400 text-center opacity-30 select-none">
+          v1.0.3-debug
+        </div>
       </div>
     </div>
   );
