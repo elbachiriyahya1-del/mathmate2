@@ -35,7 +35,10 @@ export default function LoginPage() {
         router.push("/chat");
       }
     } catch (err: any) {
-      setError(err.message || "Failed to log in");
+      console.error("FULL LOGIN ERROR:", err);
+      console.error("ERROR CODE:", err.code);
+      console.error("ERROR MESSAGE:", err.message);
+      setError(`${err.message} (${err.code || 'no-code'})`);
     } finally {
       setLoading(false);
     }
